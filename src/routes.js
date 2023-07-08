@@ -10,6 +10,10 @@ import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import DailyViewPage from './pages/DaylyViewPage';
+import WeeklyViewPage from './pages/WeeklyViewPage';
+import MonthlyViewPage from './pages/MonthlyViewPage';
+import SearchRoomPage from './pages/SearchRoomPage';
+import MyBookingsPage from './pages/MyBookingsPage';
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +28,11 @@ export default function Router() {
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
-        { path: 'daily_view', element: <DailyViewPage />}
+        { path: 'daily_view', element: <DailyViewPage />},
+        { path: 'weekly_view', element: <WeeklyViewPage />},
+        { path: 'monthly_view', element: <MonthlyViewPage />},
+        { path: 'my_bookings', element: <MyBookingsPage />},
+        { path: 'search_room', element: <SearchRoomPage />}
       ],
     },
     {
