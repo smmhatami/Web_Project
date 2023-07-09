@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
-import ReactDOM from "react-dom";
-// @mui
-import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
-// components
-import Iconify from '../../../components/iconify';
-
+import account from '../../../_mock/account';
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
@@ -26,10 +20,12 @@ export default function LoginForm() {
   const database = [
     {
       username: 'user1',
+      email: 'user1@gmail.com',
       password: 'pass1'
     },
     {
       username: 'user2',
+      email: 'user2@gmail.com',
       password: 'pass2'
     }
   ];
@@ -51,6 +47,8 @@ export default function LoginForm() {
         setErrorMessages({ name: 'pass', message: errors.pass });
       } else {
         setIsSubmitted(true);
+        account.displayName = userData.username;
+        account.email = userData.email;
       }
     } else {
       setErrorMessages({ name: 'uname', message: errors.uname });
@@ -90,7 +88,7 @@ export default function LoginForm() {
       <div className="login-form">
         <div className="title">Sign In</div>
         {isSubmitted ? (
-          navigate('/dashboard')
+          navigate('/dashboard/weekly_view')
           // <div>User is successfully logged in</div>
         ) : (
           renderForm

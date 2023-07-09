@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
+import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
+// components
+import Logo from '../components/logo';
+// sections
+import { LoginForm } from '../sections/auth/login';
+
 export default function SignUpPage() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Add the useNavigate hook
+
+  const handleSignUpClick = () => {
+    navigate('/login'); // Redirect to the sign-up page
+  };
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -56,7 +66,16 @@ const handleSubmit = (event) => {
   );
 
   return (
+  
     <div className="app">
+
+            <Typography variant="body2" sx={{ mb: 5 }}>
+              Already have an account? {''}
+              <Button onClick={handleSignUpClick}>
+                Login
+              </Button>
+            </Typography>
+
       <div className="login-form">
         <div className="title">Sign Up</div>
         {isSubmitted ? (

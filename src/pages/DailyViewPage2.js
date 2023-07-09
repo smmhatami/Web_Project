@@ -20,7 +20,12 @@ class DailyViewPage2 extends Component {
       timeRangeSelectedHandling: "Enabled",
       onTimeRangeSelected: async (args) => {
         const dp = args.control;
-        const modal = await DayPilot.Modal.prompt("Book A New Meeting", "Meet 1");
+        // const modal = await DayPilot.Modal.prompt("Book A New Meeting:", "Meet 1");
+        const modal = await DayPilot.Modal.form({
+            title: "Meeting title",
+            room: "",
+            attendees: "",
+        });
         dp.clearSelection();
         if (modal.canceled) { return; }
         dp.events.add({
@@ -28,7 +33,9 @@ class DailyViewPage2 extends Component {
           end: args.end,
           id: DayPilot.guid(),
           resource: args.resource,
-          text: modal.result
+          text: modal.result.title,
+          room: modal.result.room,
+          attendees: modal.result.attendees,
         });
       },
       eventMoveHandling: "Update",

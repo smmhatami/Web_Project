@@ -65,17 +65,30 @@ class MonthlyCalendar extends Component {
         ]
       }),
       onTimeRangeSelected: async args => {
-        const modal = await DayPilot.Modal.prompt("Book A New Meeting: Scpecify Room No and Meeting Hours", "Meeting Title");
+        // const modal = await DayPilot.Modal.prompt("Book A New Meeting: Scpecify Room No and Meeting Hours", "Meeting Title");
+        const modal = await DayPilot.Modal.form ({
+            title: "Meeting title",
+            room: "",
+            attendees: "",
+            start_hour: "",
+            end_hour: "",
+        });
 
         this.calendar.clearSelection();
         if (!modal.result) {
           return;
         }
+        const dist = " ";
+        const dash = "-"
         this.calendar.events.add({
           start: args.start,
           end: args.end,
           id: DayPilot.guid(),
-          text: modal.result
+          text: modal.result.title + dist + modal.result.room + dist + modal.result.start_hour + dash + modal.result.end_hour,
+          room: modal.result.room,
+          attendees: modal.result.attendees,
+          start_hour: modal.result.start_hour,
+          end_hour: modal.result.end_hour,
         });
       },
     };
@@ -89,38 +102,33 @@ class MonthlyCalendar extends Component {
       events: [
         {
           id: 1,
-          text: "Meet 1 - Room1 - 9:00-10:00",
-        //   room: 'Room1',
-        //   start_hour: '9:00',
-        //   end_hour: '10:00',
+          text: "Meet 1 Room1 9:00-10:00",
+          room: 'Room1',
+          attendees: "2",
+          start_hour: "9:00",
+          end_hour: "10:00",
           start: "2023-07-13",
           end: "2023-07-13",
           backColor: "#d5663e",
         },
         {
-          id: 2,
-          text: "Meet 2 - Room2 - 8:00-10:00",
-          start: "2023-07-08",
-          end: "2023-07-09",
-          backColor: "#ecb823",
-        },
-        {
-          id: 3,
-          text: "Meet 3 - Room3 - 11:00-11:30",
-          start:"2023-07-04",
-          end: "2023-07-04",
-          backColor: "#6aa84f",
-        },
-        {
           id: 4,
-          text: "Meet 4 - Room2 - 8:00-10:00",
+          text: "Meet 4 Room4 9:00-10:00",
+          room: 'Room4',
+          attendees: "2",
+          start_hour: "9:00",
+          end_hour: "10:00",
           start: "2023-07-15",
           end: "2023-07-16",
           backColor: "#3d85c6",
         },
         {
           id: 5,
-          text: "Meet 5 - Room5 - 8:00-10:00",
+          text: "Meet 5 Room5 9:00-10:00",
+          room: 'Room5',
+          attendees: "2",
+          start_hour: "9:00",
+          end_hour: "10:00",
           start: "2023-07-15",
           end: "2023-07-16"
         },
