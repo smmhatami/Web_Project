@@ -13,7 +13,7 @@ class DailyViewPage2 extends Component {
       scale: "CellDuration",
       cellDuration: 15,
       days: DayPilot.Date.today().daysInYear(),
-      startDate: DayPilot.Date.today().firstDayOfYear(),
+      startDate: new DayPilot.Date().toString('yyyy-MM-dd'),
       eventHeight: 60,
       groupConcurrentEvents: true,
       allowEventOverlap: false,

@@ -4,17 +4,18 @@ import SvgColor from '../../../components/svg-color';
 // ----------------------------------------------------------------------
 
 const icon = (name) => <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />;
+const icon1 = (name) => <SvgColor src={`/assets/icons/navbar/${name}.png`} sx={{ width: 1, height: 1 }} />;
 
 const navConfig = [
   {
     title: 'Daily View',
     path: '/dashboard/daily_view',
-    icon: icon('ic_analytics'),
+    // icon: icon1('daily'),
   },
   {
     title: 'Weekly View',
     path: '/dashboard/weekly_view',
-    icon: icon('ic_analytics')
+    // icon: icon1('7-days')
   },
   {
     title:'Monthly View',
