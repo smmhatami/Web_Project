@@ -32,28 +32,33 @@ const navConfig = [
     icon: icon()
   },
   {
-    title: 'dashboard',
+    title: 'Dashboard',
     path: '/dashboard/app',
     icon: icon('ic_analytics'),
   },
   {
-    title: 'user',
+    title: 'User',
     path: '/dashboard/user',
     icon: icon('ic_user'),
   },
   {
-    title: 'product',
+    title: 'Product',
     path: '/dashboard/products',
     icon: icon('ic_cart'),
   },
   {
-    title: 'blog',
+    title: 'Blog',
     path: '/dashboard/blog',
     icon: icon('ic_blog'),
   },
   {
-    title: 'login',
+    title: 'Login',
     path: '/login',
+    icon: icon('ic_lock'),
+  },
+  {
+    title: 'Sign Up',
+    path: '/sign_up',
     icon: icon('ic_lock'),
   },
   // {

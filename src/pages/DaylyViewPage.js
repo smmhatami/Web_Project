@@ -52,11 +52,15 @@ export default function DailyViewPage() {
 
   return (
     <>
-    
-    <h1>Daily View Page</h1>
-    <button type="button" className="btn btn-outline-secondary" id="prev" onClick={handlePrevClick}>prev</button>
-    <span>{ formattedDate }</span>
-    <button type="button" className="btn btn-outline-secondary" id="next" onClick={handleNextClick}>next</button>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <h1 >Day Schedule</h1>
+        <button style={{marginRight: '-10em'}} type="button" className="btn btn-outline-secondary" id="prev" onClick={handlePrevClick}>prev</button>
+        <span style={{ marginLeft: '-22em', marginRight: '-22em'}}>{ formattedDate }</span>
+        <button style={{marginRight: '10em'}} type="button" className="btn btn-outline-secondary" id="next" onClick={handleNextClick}>next</button>
+          
+      </div>
+    </nav>
 
       {/* <Helmet>
         <title> Dashboard | Minimal UI </title>
