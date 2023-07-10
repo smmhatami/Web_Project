@@ -25,6 +25,7 @@ class DailyViewPage2 extends Component {
             title: "Meeting title",
             room: "",
             attendees: "",
+            // office: "",
         });
         dp.clearSelection();
         if (modal.canceled) { return; }
@@ -35,6 +36,7 @@ class DailyViewPage2 extends Component {
           resource: args.resource,
           text: modal.result.title,
           room: modal.result.room,
+        //   office: modal.result.office,
           attendees: modal.result.attendees,
         });
       },

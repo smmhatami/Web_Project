@@ -10,27 +10,27 @@ const navConfig = [
   {
     title: 'Daily View',
     path: '/dashboard/daily_view',
-    // icon: icon1('daily'),
+    icon: icon1('daily'),
   },
   {
     title: 'Weekly View',
     path: '/dashboard/weekly_view',
-    // icon: icon1('7-days')
+    icon: icon1('7-days')
   },
   {
     title:'Monthly View',
     path: '/dashboard/monthly_view',
-    icon: icon('ic_analytics')
+    icon: icon1('30-days')
   },
   {
     title: 'My Bookings',
     path: '/dashboard/my_bookings',
-    icon: icon()
+    icon: icon1('booking')
   },
   {
     title: 'Search Room',
     path: '/dashboard/search_room',
-    icon: icon()
+    icon: icon1('search')
   },
   {
     title: 'Dashboard',
@@ -60,7 +60,7 @@ const navConfig = [
   {
     title: 'Sign Up',
     path: '/sign_up',
-    icon: icon('ic_lock'),
+    icon: icon1('signup'),
   },
   // {
   //   title: 'Not found',

@@ -68,6 +68,7 @@ class MonthlyCalendar extends Component {
         // const modal = await DayPilot.Modal.prompt("Book A New Meeting: Scpecify Room No and Meeting Hours", "Meeting Title");
         const modal = await DayPilot.Modal.form ({
             title: "Meeting title",
+            office: "",
             room: "",
             attendees: "",
             start_hour: "",
@@ -85,6 +86,7 @@ class MonthlyCalendar extends Component {
           end: args.end,
           id: DayPilot.guid(),
           text: modal.result.title + dist + modal.result.room + dist + modal.result.start_hour + dash + modal.result.end_hour,
+          office: modal.result.office,
           room: modal.result.room,
           attendees: modal.result.attendees,
           start_hour: modal.result.start_hour,
