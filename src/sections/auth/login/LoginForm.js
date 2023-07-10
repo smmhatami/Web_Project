@@ -45,9 +45,9 @@ export default function LoginForm() {
       method: "POST", 
       headers: {
         'Content-Type': 'application/json',
-        // 'Access-Control-Allow-Origin': 'http://localhost:3000'
+        'Access-Control-Allow-Credintials': 'true'
       },
-      // credentials:'include',
+      credentials:'include',
       body: JSON.stringify({
         "username": uname,
         "password": pass
