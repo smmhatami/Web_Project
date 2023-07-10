@@ -4,7 +4,7 @@ import './styles.css';
 import account from '../../../_mock/account';
 // ----------------------------------------------------------------------
 
-export default function LoginForm() {
+export default function LoginForm(props) {
   const navigate = useNavigate();
 
   // const [showPassword, setShowPassword] = useState(false);
@@ -58,6 +58,7 @@ export default function LoginForm() {
     if (response.ok) {
       setIsSubmitted(true);
       account.displayName = content.username;
+      props.Setuname(content.username)
       // account.email = userData.email;
     }
 

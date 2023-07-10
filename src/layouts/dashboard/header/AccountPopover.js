@@ -24,7 +24,7 @@ const MENU_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-export default function AccountPopover() {
+export default function AccountPopover(props) {
   const [open, setOpen] = useState(null);
 
   const handleOpen = (event) => {
@@ -34,6 +34,21 @@ export default function AccountPopover() {
   const handleClose = () => {
     setOpen(null);
   };
+
+  const handleLogout = async () => {
+    (
+      async () => {
+        const response = await fetch("http://localhost:8080/logout/", {
+          method: "POST", 
+          credentials:'include',
+          // mode:'no-cors'
+        })
+      handleClose()
+      props.Setuname('')
+      }
+    )()
+
+  }
 
   return (
     <>
@@ -97,7 +112,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <MenuItem onClick={handleClose} sx={{ m: 1 }}>
+        <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
           Logout
         </MenuItem>
       </Popover>
