@@ -42,7 +42,7 @@ Header.propTypes = {
   onOpenNav: PropTypes.func,
 };
 
-export default function Header({ onOpenNav }) {
+export default function Header({ Setuname, onOpenNav }) {
   return (
     <StyledRoot>
       <StyledToolbar>
@@ -70,7 +70,7 @@ export default function Header({ onOpenNav }) {
         >
           <LanguagePopover />
           <NotificationsPopover />
-          <AccountPopover />
+          <AccountPopover Setuname={Setuname}/>
         </Stack>
       </StyledToolbar>
     </StyledRoot>

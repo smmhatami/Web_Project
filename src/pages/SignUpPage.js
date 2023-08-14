@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate, redirect} from 'react-router-dom';
 import './styles.css';
 
 import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
@@ -22,21 +22,35 @@ export default function SignUpPage() {
     { username: 'user2', password: 'pass2' },
   ]);
 
-  const errors = { uname: 'Username already exists.' };
+  const errors = { username: 'Username already exists.' };
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const { uname, pass } = event.target.elements;
-  if (database.find((user) => user.username === uname.value)) {
-    setErrorMessages({ name: 'uname', message: errors.uname });
-  } else {
-    setDatabase((prevDatabase) => [
-      ...prevDatabase,
-      { username: uname.value, password: pass.value },
-    ]);
-    setIsSubmitted(true);
-  }
-};
+  const [uname, setName] = useState('')
+  const [pass, setPassword] = useState('')
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await fetch("http://localhost:8080/register/", {
+      method: "POST", 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "username": uname,
+        "password": pass
+      })
+    })
+    if (response.ok) {
+      setIsSubmitted(true);
+    }
+    // TODO : handle errors
+    // if (database.find((user) => user.username === uname.value)) {
+    //   setErrorMessages({ name: 'uname', message: errors.uname });
+    // } else {
+    //   setDatabase((prevDatabase) => [
+    //     ...prevDatabase,
+    //     { username: uname.value, password: pass.value },
+    //   ]);
+    //   setIsSubmitted(true);
+    // }
+  };
 
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
@@ -48,15 +62,19 @@ const handleSubmit = (event) => {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label htmlFor="btn-check5" className="btn btn-primary-border">
-            <input placeholder="email" type="text" name="uname" required />
+            <input placeholder="username" type="text" name="username" required 
+              onChange={e => setName(e.target.value)}
+            />
           </label>
-          {renderErrorMessage('uname')}
+          {renderErrorMessage('username')}
         </div>
         <div className="input-container">
           <label htmlFor="btn-check5" className="btn btn-primary-border">
-            <input placeholder="password" type="password" name="pass" required />
+            <input placeholder="password" type="password" name="password" required
+              onChange={e => setPassword(e.target.value)}
+            />
           </label>
-          {renderErrorMessage('pass')}
+          {renderErrorMessage('password')}
         </div>
         <div className="button-container">
           <input type="submit" value="Submit" />

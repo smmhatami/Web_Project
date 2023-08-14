@@ -41,7 +41,7 @@ const StyledContent = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function LoginPage() {
+export default function LoginPage(props) {
   const mdUp = useResponsive('up', 'md');
   const navigate = useNavigate(); // Add the useNavigate hook
 
@@ -86,7 +86,7 @@ export default function LoginPage() {
               </Button>
             </Typography>
 
-            <LoginForm />
+            <LoginForm Setuname={props.Setuname}/>
           </StyledContent>
         </Container>
       </StyledRoot>
